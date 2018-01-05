@@ -1,0 +1,97 @@
+.tag-line {
+    font-weight: 800;
+    font-size: 3.5em;
+    color: #FFFFFF;
+}
+
+iframe {
+    width: 400px;
+    height: 250px;
+    margin-top: -30px;
+}
+
+.move-up {
+    margin-top: -20px;
+}
+
+.m-none {
+    margin: 0 !important;
+}
+
+.p-none {
+    padding: 0 !important;
+}
+
+.brand {
+    padding: 0 18px 0 18px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.7;
+    margin: 5px;
+    background: transparent;
+}
+
+.brand:hover {
+    opacity: 0.9;
+}
+
+.brand-selected {
+    opacity: 1;
+}
+
+.selected {
+    color: #28a745!important;
+    position: absolute
+}
+
+.outline {
+    border: 1px solid #eeeeee;
+    width: auto !important;
+}
+
+@media (max-width: 991px) {
+    .shift-center {
+        text-align: center;
+    }
+}
+
+@media (min-width: 991px) {
+    .m-lg-adjust {
+        margin-left: -10px;
+    }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.closebutton {
+    color: white;
+    margin: 10px;
+    font-size: 24px;
+    font-weight: 100;
+    z-index: 99999;
+}
+
+.video-overlay {
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background: rgba(0, 0, 0, 1);
+    z-index: 9999;
+}
+
+.fsplayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-app {
+    background-color: #fcac18;
+    border: none;
+}

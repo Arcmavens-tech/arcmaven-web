@@ -1,0 +1,66 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="row" *ngIf="blogs">
+            <div class="col-md-7">
+                <div *ngFor="let blog of blogs">
+                    <div class="owner">
+                        <div class="row">
+                            <div class="blogger col-4 text-right">
+                                <img gravatar [email]="blog.data.email" [size]="40" [fallback]="'wavatar'" class="img-circle img-no-padding img-responsive">
+                            </div>
+                            <div class="name col-4 np text-left">
+                                <h6 class="blog-author np nm"><strong>{{blog.data.author}}</strong><br /></h6>
+                                <span class="np nm">{{blog.data.timestamp | date}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h3><strong>{{blog.title}}</strong></h3>
+                    <div class="page-header page-header-xs" data-parallax="true" [ngStyle]="{'background-image': 'url('+ blog.data.cover +')'}"> </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 np">
+                                <p>{{blog.data.desc}} ...<br>
+                                    <small [routerLink]="['/blogs/'+ blog.id]" style="cursor:pointer" class="text-danger">READ MORE</small>
+                                </p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+                <h4 class="nm">
+                    <img src="assets/img/bikkr_logo_grey.png">
+                    <strong>Bikkr</strong>
+                </h4>
+                <h5><strong>Bikkr is marketplace for premium motorbike lovers where they can</strong></h5>
+                <p>- Buy/Sell their motorcycles
+                    <br>- Book a service to a nearby service station
+                    <br>- Order personal and Bike Accessories
+                    <br>- Explore Finance options and Buy/Renew Insurance
+                    <br>- Book Bikers' travelling and expedition packaged from the listing
+                </p>
+                <br>
+                <form (ngSubmit)="addSubscriber()" #contactForm="ngForm">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                                  <i class="nc-icon nc-email-85"></i>
+                                              </span>
+                                <input type="email" name="email" class="form-control" [(ngModel)]="contact.email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                            </div>
+                        </div>
+                        <div class="col-4 np">
+                            <button [disabled]="!contactForm.form.valid" type="submit" class="btn btn-neutral btn-sm text-success">{{buttonText}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div *ngIf="!blogs">
+            <h4>Blogs gone for a ride. </h4>
+        </div>
+    </div>
+</div>

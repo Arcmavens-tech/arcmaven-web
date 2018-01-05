@@ -1,0 +1,41 @@
+<div class="wrapper" *ngIf="blog">
+    <div class="page-header page-header-xs" data-parallax="true" [ngStyle]="{'background-image': 'url('+ blog.cover +')'}">
+        <div class="filter" style="opacity: 0.5 !important">
+        </div>
+    </div>
+    <div class="container">
+        <div style="width:100%" class="text-center">
+            <h1>{{blog.title}}</h1>
+        </div>
+        <div class="section profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div *ngIf="blog.blocks" class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="blogger col-4 text-right">
+                                        <img gravatar [email]="blog.email" [size]="40" [fallback]="'wavatar'" class="img-circle img-no-padding img-responsive">
+                                    </div>
+                                    <div class="name col-4 np text-left">
+                                        <h6 class="blog-author np nm"><strong>{{blog.author}}</strong><br /></h6>
+                                        <span class="np nm">{{blog.timestamp | date}}</span>
+                                    </div>
+                                </div>
+                                <div *ngFor="let block of blog.blocks;let i=index">
+                                    <h3 class="blog-head" *ngIf="block.type=='heading'"><strong>{{block.src}}</strong></h3>
+                                    <h4 class="blog-subhead" style="margin-bottom:15px" *ngIf="block.type=='subheading'"><strong>{{block.src}}</strong></h4>
+                                    <p *ngIf="block.type=='paragraph'">{{block.src}}</p>
+                                    <div class="text-center"><img [src]="block.src" class="image-blog mr-auto ml-auto" *ngIf="block.type=='image'" /></div>
+                                    <!-- <div *ngIf="block.type=='video'" [innerHtml]="block.src | sanitizeHtml"></div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>
